@@ -1,5 +1,5 @@
 # PQGrams
-by Cathal Garvey, Copyright 2017, Licensed under AGPLv3 or later.
+by Cathal Garvey, Copyright 2017, Licensed under LGPLv3 or later; see license.txt
 
 ## About
 PQ-Grams are a method for efficiently evaluating tree structure/content similarity,

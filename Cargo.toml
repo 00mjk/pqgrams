@@ -1,0 +1,7 @@
+[package]
+name = "pqgrams"
+version = "0.9.0"
+authors = ["Cathal Garvey <cathalgarvey@cathalgarvey.me>"]
+description = "This package implements a basic version of the PQ-Grams tree-edit-distance approximation algorithm, as generically as possible. It defines traits that you can define for your label-types and tree-types, to use custom types with the algorithm. It also defines a basic generic Tree type for string or integer leaf types that is easy to build with, and compatible with the algorithm."
+
+[dependencies]

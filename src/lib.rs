@@ -54,7 +54,7 @@ mod tests {
     #[test]
     fn test_pqgram_profile() {
         assert_eq!(known_profile_1(),
-                   flatten_profile(&pqgram_profile(build_known_tree_1(), 2, 3), "*".to_string()))
+                   flatten_profile(&pqgram_profile(build_known_tree_1(), 2, 3, true), "*".to_string()))
     }
 
     #[test]
@@ -62,9 +62,23 @@ mod tests {
         let tree_1 = build_known_tree_1();
         let tree_2 = tree_1.clone();
         let tree_3 = build_known_tree_2();
-        let prof1 = pqgram_profile(tree_1, 2, 3);
-        let prof2 = pqgram_profile(tree_2, 2, 3);
-        let prof3 = pqgram_profile(tree_3, 2, 3);
+        let prof1 = pqgram_profile(tree_1, 2, 3, false);
+        let prof2 = pqgram_profile(tree_2, 2, 3, false);
+        let prof3 = pqgram_profile(tree_3, 2, 3, false);
+        let dist12 = pqgram_distance::<String, Tree<String>>(&prof1, &prof2, None);
+        let dist13 = pqgram_distance::<String, Tree<String>>(&prof1, &prof3, None);
+        assert_eq!(f64_round_2dp(dist12), 0.);    // Same
+        assert_eq!(f64_round_2dp(dist13), 0.31);  // Differ by 0.31
+    }
+
+    #[test]
+    fn test_pqgram_distance_when_sorted() {
+        let tree_1 = build_known_tree_1();
+        let tree_2 = tree_1.clone();
+        let tree_3 = build_known_tree_2();
+        let prof1 = pqgram_profile(tree_1, 2, 3, true);
+        let prof2 = pqgram_profile(tree_2, 2, 3, true);
+        let prof3 = pqgram_profile(tree_3, 2, 3, true);
         let dist12 = pqgram_distance::<String, Tree<String>>(&prof1, &prof2, None);
         let dist13 = pqgram_distance::<String, Tree<String>>(&prof1, &prof3, None);
         assert_eq!(f64_round_2dp(dist12), 0.);    // Same

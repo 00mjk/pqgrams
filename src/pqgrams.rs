@@ -80,13 +80,13 @@ fn _profile_subtree<L, T>(subtree: &T, p: usize, q: usize, ancestors: &mut BDequ
 }
 
 /// Build a PQGram vector profile
-pub fn pqgram_profile<L, T>(tree: T, p: usize, q: usize) -> Vec<PQGram<L>>
+pub fn pqgram_profile<L, T>(tree: T, p: usize, q: usize, sort: bool) -> Vec<PQGram<L>>
     where L: ValidGramElement, T: LabelledTree<L>
 {
     let mut ancestors = BDeque::<Node<L>>::new(p);
     ancestors.fill_with(Node::Filler);
     let mut prof = _profile_subtree(&tree, p, q, &mut ancestors);
-    prof.sort();
+    if sort { prof.sort() }
     prof
 }
 

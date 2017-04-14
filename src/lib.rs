@@ -2,7 +2,7 @@ mod bdeque;
 mod pqgrams;
 mod default_tree;
 pub use default_tree::Tree;
-pub use pqgrams::{pqgram_distance, ValidGramElement, LabelledTree, Node, pqgram_profile, flatten_profile, pqgram_distance_with_fn};
+pub use pqgrams::{pqgram_distance, ValidGramElement, LabelledTree, PQGram, Node, pqgram_profile, flatten_profile, pqgram_distance_with_fn};
 
 
 #[cfg(test)]

@@ -1,6 +1,6 @@
 [package]
 name        = "pqgrams"
-version     = "0.9.0"
+version     = "0.9.1"
 authors     = ["Cathal Garvey <cathalgarvey@cathalgarvey.me>"]
 homepage    = "https://github.com/cathalgarvey/pqgrams"
 repository  = "https://github.com/cathalgarvey/pqgrams"
